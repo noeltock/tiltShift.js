@@ -25,13 +25,13 @@
 
             // Setup DOM around Image (ugly but flexible)
 
-            $this.wrap('<div class="tiltshift-wrap" />');
-            $parent.prepend('<div class="tiltshift-before tiltshift-layer"></div>');
-            $parent.append('<div class="tiltshift-after tiltshift-layer"></div>');
+            var $wrap = $this.wrap('<div class="tiltshift-wrap" />').parent();
+            $wrap.prepend('<div class="tiltshift-before tiltshift-layer"></div>');
+            $wrap.append('<div class="tiltshift-after tiltshift-layer"></div>');
 
             // Grab original image and assign to before & after
 
-            var src = $this.attr("src");
+            var src = $this.attr('src');
             $parent.find('.tiltshift-layer').css('background-image', 'url(' + src + ')');
 
             // Set Blur
@@ -53,7 +53,7 @@
             // Set directional variables
             var beforeDirection, afterDirection;
 
-            if ( s_direction == 'y' ) {
+            if ( s_direction === 'y' ) {
                 beforeDirection = 'left top, left bottom';
                 afterDirection = 'left bottom, left top';
             } else {
