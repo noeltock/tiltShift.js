@@ -1,0 +1,175 @@
+<!doctype html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>tiltShift.js - a jQuery plugin using CSS3 filters to replicate the tilt shift effect</title>
+    <meta name="description" content="Use this jQuery plugin to mimic the popular tilt-shift photography effect.">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="example/example.css">
+    <link rel="stylesheet" href="jquery.tiltShift.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="jquery.tiltShift.js"></script>
+
+    <!-- tiltShift plugin start -->
+
+    <script>
+
+       jQuery(document).ready(function() {
+
+            $('.tiltshift').tiltShift();
+
+        });
+
+    </script>
+
+    <!-- tiltShift plugin end (I know, was crazy) -->
+
+</head>
+
+<body>
+
+    <article id="main">
+
+        <div class="social">
+
+            <div style="position:relative;top:35px;display:inline">
+                <a  href="https://twitter.com/share" class="twitter-share-button" data-text="tiltShift.js - a jQuery plugin using CSS3 filters to replicate the tiltshift effect" data-via="noeltock" data-size="large">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+
+            <div style="position:relative;top:33px;display:inline">
+                <div class="g-plusone"></div>
+            </div>
+
+        </div>
+
+        <header>
+
+            <h1>tiltShift.js</h1>
+            <p>A jQuery plugin that uses the CSS3 image filters to replicate the tilt-shift effect. This is a proof of concept and currently <strong>only works in Chrome</strong>.</p>
+
+        </header>
+
+        <!-- tiltshift example 1 -->
+
+        <div class="frame">
+
+            <div id="hover"></div>
+
+            <img src="example/example2.jpg" class="tiltshift" data-position="56" data-blur="2" data-focus="5" data-falloff="15" data-direction="y" alt="See credits at bottom of page for Photograpger link" />
+
+        </div>
+
+        <!-- tiltshift example 2 -->
+
+        <div class="frame last">
+
+            <img src="example/example1.jpg" class="tiltshift" data-position="70" data-blur="1" data-focus="10" data-falloff="20" data-direction="y" alt="See credits at bottom of page for Photograpger link" />
+
+        </div>
+
+        <div class="clear"></div>
+
+        <!-- tiltshift example 3 -->
+
+        <div class="frame">
+
+            <img src="example/example3.jpg" class="tiltshift" data-position="50" data-blur="2" data-focus="10" data-falloff="10" data-direction="y" alt="See credits at bottom of page for Photograpger link" />
+
+        </div>
+
+        <!-- tiltshift example 4 -->
+
+        <div class="frame last">
+
+            <img src="example/example4.jpg" class="tiltshift" data-position="50" data-blur="2" data-focus="4" data-falloff="6" data-direction="x" alt="See credits at bottom of page for Photograpger link" />
+
+        </div>
+
+        <div class="clear"></div>
+
+        <h2>download</h2>
+
+        <h2>how to use</h2>
+
+        <p>Call the plugin on any collection of images you want by adding the following jQuery:</p>
+
+        <code>
+            jQuery(document).ready(function() {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('.tiltshift').tiltShift();<br />
+            });
+        </code>
+
+        <p>Parameters on each image must be set using the HTML5 data attributes, like this:</p>
+
+        <code>&#60;img src="url" class="tiltshift" data-position="50" data-blur="2" data-focus="10" data-falloff="10" data-direction="y"&#62;</code>
+
+        <p>The attributes will control various variables that influence the tiltshift effect.</p>
+
+        <ul>
+            <li><strong>-position</strong> (0-100), defines the point of focus. 66 would be two thirds of the way in.</li>
+            <li><strong>-blur</strong> (0-?), the blur radius in pixels. 1 or 2 are usually good numbers.</li>
+            <li><strong>-focus</strong> (0-100), the amount of area that is in focus. 10 would mean one tenth of the image is sharp.</li>
+            <li><strong>-falloff</strong> (0-100), the amount of area between complete focus and complete blur. The lower the value, the "tighter" the fade.</li>
+            <li><strong>-direction</strong> ("x" or "y"), the direction of the effect.</li>
+        </ul>
+
+        <h2>notes</h2>
+
+        <ul>
+            <li>As previously stated, currently only supported by <strong>Chrome</strong>. CSS3 filters are not widely supported, and Firefox/Mozilla to my knowledge only support SVG's for it's mask property.</li>
+            <li>Wraps a DIV around the IMG tag, so you may want to apply to same styling attributes to the selector '.tiltshift-wrap'</li>
+            <li>Pull requests? Yes, happy to make this more rigid across different browsers.</li>
+        </ul>
+
+        <h2>author</h2>
+
+        <img class="avatar" src="https://secure.gravatar.com/avatar/7e494cc062198b60f811d1b5040070d6?s=80">
+
+        <p>tiltShift.js is brought to you by <a href="http://www.noeltock.com">Noel Tock</a>, a WordPress, front-end and startup dude. I also <a href="http://www.noeltock.com/blog/">blog</a> from time to time. Follow me on Twitter here:</p>
+
+        <a href="https://twitter.com/noeltock" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @noeltock</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+        <div class="clear"></div>
+
+        <h2>photo credits</h2>
+
+        <p>If you're interested in licensing any of the images, please contact the photographers by following the links below:</p>
+
+        <a href="http://www.flickr.com/photos/seattlemunicipalarchives/3836684671/" rel="nofollow" target="_blank">Stadium</a> /
+        <a href="http://www.flickr.com/photos/nattu/2691652187/" rel="nofollow" target="_blank">Ocean</a> /
+        <a href="http://www.flickr.com/photos/stevec77/2841222052/in/photostream" rel="nofollow" target="_blank">Airplane</a> /
+        <a href="http://www.flickr.com/photos/hyunlab/309527428/" rel="nofollow" target="_blank">Skyscraper</a>
+
+    </article>
+
+    <!-- Place this tag after the last +1 button tag. -->
+    <script type="text/javascript">
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-10064035-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+</body>
+</html>

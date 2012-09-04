@@ -1,0 +1,116 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,700);
+
+html {
+    background: url(roughcloth.png)
+}
+
+body {
+    font-family:'Lato', sans-serif;
+    color:#333;
+    text-shadow:0 1px 0 rgba(255,255,255,1);
+    line-height: 1.7;
+    font-size:18px;
+}
+
+/* tiltShift stuff (start) */
+
+.frame {
+    position:relative;
+    width:400px;
+    height:400px;
+    float:left;
+    margin:20px 40px 20px 0;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 2px 15px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 2px 15px 0px rgba(0, 0, 0, 0.3);
+    border:5px solid white;
+}
+
+.tiltshift-layer {
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    opacity:1;
+    cursor:pointer;
+    cussor:hand;
+}
+
+.frame:hover .tiltshift-layer {
+    opacity:0;
+}
+
+/* tiltShift stuff (end)*/
+
+
+a {
+    color:#ed3314;
+    text-decoration: none;
+}
+
+.clear {
+    clear:both;
+}
+
+#main {
+	width:860px;
+	margin:0 auto;
+    overflow:visible;
+    padding-bottom:40px;
+    position:relative;
+}
+
+h1 {
+    font-size:56px;
+    margin:10px 0 0;
+}
+
+h2 {
+    border-bottom:1px solid rgba(0,0,0,0.2);
+    padding-bottom:5px;
+    margin:40px 0;
+}
+
+.social {
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+#hover {
+    width:90px;
+    height:65px;
+    position:absolute;
+    top:60px;
+    background:url(hover.png) no-repeat;
+    left: -120px;
+}
+
+.desc {
+    width:400px;
+    float:left;
+}
+
+.desc p:first-child {
+    margin-top:0;
+}
+
+.last {
+    margin-right:0!important;
+}
+
+.avatar {
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 2px 15px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 2px 15px 0px rgba(0, 0, 0, 0.3);
+    border:5px solid white;
+    margin:0 20px 20px 0;
+    float:left;
+    height:80px;
+    width:80px;
+}
+
+code {
+    display:block;
+    background:rgba(0,0,0,0.05);
+    padding:10px;
+    font-size:15px;
+}
