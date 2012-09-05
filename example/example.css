@@ -27,12 +27,9 @@ body {
 
 .tiltshift-layer {
     -webkit-transition: opacity 0.5s ease-in-out;
-    -moz-transition: opacity 0.5s ease-in-out;
-    -o-transition: opacity 0.5s ease-in-out;
     transition: opacity 0.5s ease-in-out;
     opacity:1;
     cursor:pointer;
-    cussor:hand;
 }
 
 .frame:hover .tiltshift-layer {
@@ -94,18 +91,19 @@ h2 {
     margin-top:0;
 }
 
-.last {
-    margin-right:0!important;
+.frame:nth-child(even) {
+    margin-right:0;
 }
 
 .avatar {
-    -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 2px 15px 0px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 2px 15px 0px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5), 0 2px 15px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5), 0 2px 15px 0 rgba(0, 0, 0, 0.3);
     border:5px solid white;
-    margin:0 20px 20px 0;
+    margin:0 20px 40px 0;
     float:left;
     height:80px;
     width:80px;
+    clear: left;
 }
 
 code {
