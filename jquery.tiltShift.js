@@ -26,8 +26,8 @@
             // Setup DOM around Image (ugly but flexible)
 
             var $wrap = $this.wrap('<div class="tiltshift-wrap" />').parent();
-            $wrap.prepend('<div class="tiltshift-before tiltshift-layer"></div>');
-            $wrap.append('<div class="tiltshift-after tiltshift-layer"></div>');
+            $wrap.prepend('<div class="tiltshift-before tiltshift-layer" />');
+            $wrap.append('<div class="tiltshift-after tiltshift-layer" />');
 
             // Grab original image and assign to before & after
 
@@ -47,28 +47,39 @@
 
             // Calculate Falloff Breakpoints (impacted by tightness value)
 
-            var beforeFall = ( ( beforeEnd ) - ( s_falloff / 100 ) ).toFixed(2);
-            var afterFall = ( ( afterEnd ) - ( s_falloff / 100 ) ).toFixed(2);
+            var beforeFall = ( ( beforeEnd - ( s_falloff / 100 ) ) * 100 ).toFixed(2);
+            var afterFall = ( ( afterEnd - ( s_falloff / 100 ) ) * 100 ).toFixed(2);
+
+            // Adjust back up to integers for gradient format
+
+            beforeEnd *= 100;
+            afterEnd *= 100;
 
             // Set directional variables
+            
             var beforeDirection, afterDirection;
 
             if ( s_direction === 'y' ) {
-                beforeDirection = 'left top, left bottom';
-                afterDirection = 'left bottom, left top';
+                beforeDirection = '270deg';
+                afterDirection = '90deg';
+            } else if ( s_direction === 'x' ) {
+                beforeDirection = '180deg';
+                afterDirection = '0deg';
             } else {
-                beforeDirection = 'left top, right top';
-                afterDirection = 'right top, left top';
+                var angle = s_direction % 360;
+
+                beforeDirection = (angle + 180) + 'deg';
+                afterDirection = angle + 'deg';
             }
 
             // Apply Gradient Mask to Image Layers
 
             $parent.find('.tiltshift-before').css({
-                '-webkit-mask-image' : '-webkit-gradient(linear, ' + beforeDirection + ', color-stop(0, rgba(0,0,0,1)), color-stop(' + beforeFall + ', rgba(0,0,0,1)), color-stop(' + beforeEnd + ', rgba(0,0,0,0)))'
+                '-webkit-mask-image' : '-webkit-linear-gradient(' + beforeDirection + ', rgba(0,0,0,1) 0, rgba(0,0,0,1) ' + beforeFall + '%, rgba(0,0,0,0) ' + beforeEnd + '%)'
             });
 
             $parent.find('.tiltshift-after').css({
-                '-webkit-mask-image' : '-webkit-gradient(linear, ' + afterDirection + ', color-stop(0, rgba(0,0,0,1)), color-stop(' + afterFall + ', rgba(0,0,0,1)), color-stop(' + afterEnd + ', rgba(0,0,0,0)))'
+                '-webkit-mask-image' : '-webkit-linear-gradient(' + afterDirection + ', rgba(0,0,0,1) 0, rgba(0,0,0,1) ' + afterFall + '%, rgba(0,0,0,0) ' + afterEnd + '%)'
             });
 
         });
