@@ -11,31 +11,32 @@
 (function($) {
 
     $.fn.tiltShift = function(options) {
-
-		$(this).each(function(){
+        $(this).each(function(){
 
             // Settings
 
-            var s_position = $(this).data('position');
-            var s_blur = $(this).data('blur');
-            var s_focus = $(this).data('focus');
-            var s_falloff = $(this).data('falloff');
-            var s_direction = $(this).data('direction');
+            var $this = $(this);
+            var $parent = $this.parent();
+            var s_position = $this.data('position');
+            var s_blur = $this.data('blur');
+            var s_focus = $this.data('focus');
+            var s_falloff = $this.data('falloff');
+            var s_direction = $this.data('direction');
 
             // Setup DOM around Image (ugly but flexible)
 
-            $(this).wrap('<div class="tiltshift-wrap" />');
-            $(this).parent().prepend('<div class="tiltshift-before tiltshift-layer"></div>');
-            $(this).parent().append('<div class="tiltshift-after tiltshift-layer"></div>');
+            var $wrap = $this.wrap('<div class="tiltshift-wrap" />').parent();
+            $wrap.prepend('<div class="tiltshift-before tiltshift-layer"></div>');
+            $wrap.append('<div class="tiltshift-after tiltshift-layer"></div>');
 
             // Grab original image and assign to before & after
 
-            var src = $(this).attr("src");
-            $(this).parent().find('.tiltshift-layer').css('background-image', 'url(' + src + ')');
+            var src = $this.attr('src');
+            $parent.find('.tiltshift-layer').css('background-image', 'url(' + src + ')');
 
-			// Set Blur
+            // Set Blur
 
-            $(this).parent().find('.tiltshift-layer').css({
+            $parent.find('.tiltshift-layer').css({
                 '-webkit-filter': 'blur(' + s_blur + 'px)'
             });
 
@@ -50,26 +51,27 @@
             var afterFall = ( ( afterEnd ) - ( s_falloff / 100 ) ).toFixed(2);
 
             // Set directional variables
+            var beforeDirection, afterDirection;
 
-            if ( s_direction == 'y' ) {
-                var beforeDirection = 'left top, left bottom';
-                var afterDirection = 'left bottom, left top';
+            if ( s_direction === 'y' ) {
+                beforeDirection = 'left top, left bottom';
+                afterDirection = 'left bottom, left top';
             } else {
-                var beforeDirection = 'left top, right top';
-                var afterDirection = 'right top, left top';
+                beforeDirection = 'left top, right top';
+                afterDirection = 'right top, left top';
             }
 
             // Apply Gradient Mask to Image Layers
 
-            $(this).parent().find('.tiltshift-before').css({
+            $parent.find('.tiltshift-before').css({
                 '-webkit-mask-image' : '-webkit-gradient(linear, ' + beforeDirection + ', color-stop(0, rgba(0,0,0,1)), color-stop(' + beforeFall + ', rgba(0,0,0,1)), color-stop(' + beforeEnd + ', rgba(0,0,0,0)))'
             });
 
-            $(this).parent().find('.tiltshift-after').css({
+            $parent.find('.tiltshift-after').css({
                 '-webkit-mask-image' : '-webkit-gradient(linear, ' + afterDirection + ', color-stop(0, rgba(0,0,0,1)), color-stop(' + afterFall + ', rgba(0,0,0,1)), color-stop(' + afterEnd + ', rgba(0,0,0,0)))'
             });
 
-		});
+        });
 
     };
 
