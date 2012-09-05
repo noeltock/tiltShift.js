@@ -3,7 +3,7 @@
  tiltShift.js
 
  Demo: http://www.noeltock.com/tilt-shift-css3-jquery-plugin/
- Download:
+ Download: https://github.com/noeltock/tiltShift.js/
  License: GPL GNU (http://www.gnu.org/licenses/)
 
  */
