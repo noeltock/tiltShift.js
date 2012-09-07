@@ -82,6 +82,10 @@ h2 {
     left: -120px;
 }
 
+.center-text {
+    text-align: center;
+}
+
 .desc {
     width:400px;
     float:left;

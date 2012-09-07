@@ -13,21 +13,6 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="jquery.tiltShift.js"></script>
-
-    <!-- tiltShift plugin start -->
-
-    <script>
-
-       jQuery(document).ready(function() {
-
-            $('.tiltshift').tiltShift();
-
-        });
-
-    </script>
-
-    <!-- tiltShift plugin end (I know, was crazy) -->
-
 </head>
 
 <body>
@@ -52,6 +37,7 @@
             <h1>tiltShift.js</h1>
             <p>A jQuery plugin that uses the CSS3 image filters to replicate the tilt-shift effect. This is a proof of concept and currently <strong>only works in Chrome</strong>.</p>
 
+            <p class="center-text"><a href="#" onclick="$('.tiltshift').tiltShift(); return false;">tilt-shift images</a> / <a href="#" onclick="$('.tiltshift').tiltShift({ reset: true }); return false;">remove tilt-shift</a></p>
         </header>
 
         <!-- tiltshift example 1 -->
@@ -153,6 +139,24 @@
         <a href="http://www.flickr.com/photos/hyunlab/309527428/" rel="nofollow" target="_blank">Skyscraper</a>
 
     </article>
+
+    <!-- tiltShift plugin start -->
+
+    <script>
+
+       (function() {
+            
+            // Tilted objects stored in window for demonstration purposes
+
+            window.tilts = $('.tiltshift').tiltShift();
+
+        })(window);
+
+    </script>
+
+    <!-- tiltShift plugin end (I know, was crazy) -->
+
+
 
     <!-- Place this tag after the last +1 button tag. -->
     <script type="text/javascript">
