@@ -37,7 +37,7 @@
             // Set Blur
 
             $parent.find('.tiltshift-layer').css({
-                '-webkit-filter': 'blur(' + s_blur + 'px) contrast(125%) saturate(105%)'
+                '-webkit-filter': 'blur(' + s_blur + 'px) contrast(105%) saturate(105%)'
             });
 
             // Calculate Focus Boundaries (impacted by inFocus value)
